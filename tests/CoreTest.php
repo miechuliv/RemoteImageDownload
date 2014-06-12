@@ -29,4 +29,15 @@ class CoreTest extends  PHPUnit_Framework_TestCase{
 
         $this->assertTrue(file_exists($localFileName));
     }
+
+    public function testIsImageSpaceInUrlDownloaded()
+    {
+        $url = 'http://platforma24.eu/media/products/58/F00000198-Umyagchenie zlyx serdec-s.jpg';
+        $baseDir = __DIR__.'/../files/';
+
+        $this->_targetObject->setDestinationDirBase($baseDir);
+        $localFileName = $this->_targetObject->downloadImage($url,true,true);
+
+        $this->assertTrue(file_exists($localFileName));
+    }
 }

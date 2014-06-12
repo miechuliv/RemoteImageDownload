@@ -31,7 +31,7 @@ class RemoteImageDownload {
 
     public function downloadImage($url,$returnFullDir = true, $overrideImage = false, $forceSaveFormat = false, $destinationBaseUrl = false, $newFileName = false)
     {
-        $image = file_get_contents($url);
+        $image = file_get_contents(str_replace(' ', '%20', $url));
 
         if(!$image)
         {
